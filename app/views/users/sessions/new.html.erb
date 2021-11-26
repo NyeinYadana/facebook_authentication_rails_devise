@@ -1,0 +1,24 @@
+<div class="container">  
+  <div class="card mt-3 m-auto col-6">
+    <div class="card-header">
+      <h2>Log in</h2>
+    </div>
+    <div class="card-body">     
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="d-flex flex-column justify-content-center">
+
+          <%= f.label :email, class:"form-label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+         
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: "current-password" %>           
+         
+          <%= f.submit "Log in", class: "btn btn-primary mb-3 mt-3"%>          
+          <%= link_to "Login With Line", user_line_omniauth_authorize_path, class: "btn btn-outline-success mb-3" %>
+          <%= link_to "Login With Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-outline-primary mb-3" %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </div>
+      <% end %>        
+    </div>
+  </div>
+</div>

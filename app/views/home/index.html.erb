@@ -1,0 +1,39 @@
+<% if current_user %>    
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">FACEBOOK AUTHENTICATION</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+          <a class="nav-link" href="#">Features</a> 
+          <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>              
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid bg-banner">
+    <div class="d-flex flex-column justify-content-center">
+    <h1>Hello , Have a Nice Day!</h1>
+    <h3>You are successfully login.</h3> 
+    </div>
+  </div>
+<% else %>
+  <div class="container-fluid">
+    <div class="col-6 m-auto mt-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex flex-column justify-content-center">
+            <h1>Hello, Welcome</h1>                     
+            <%= link_to "Registration",new_user_registration_path, class: "btn btn-outline-warning mt-3" %>          
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-info mt-3" %>            
+            <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-outline-primary mt-3" %>
+            <%= link_to "Sign in with Line", user_facebook_omniauth_authorize_path, class: "btn btn-outline-success mt-3" %>          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
